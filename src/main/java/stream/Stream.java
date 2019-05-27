@@ -20,6 +20,7 @@ public interface Stream<T> {
      */
     <R> R reduce(R initVal, BiFunction<R, R, T> accumulator);
 
+    int count();
 
     public static <T> MyStream<T> makeEmptyStream() {
         return new MyStream.Builder<T>().isEnd(true).build();

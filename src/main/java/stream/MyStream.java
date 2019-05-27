@@ -43,6 +43,18 @@ public class MyStream<T> implements Stream<T> {
         return this.isEnd;
     }
 
+    @Override
+    public int count() {
+        return count(this.eval(), 0);
+    }
+
+    private static <T> int count(MyStream<T> stream, int count) {
+        if (stream.isEmptyStream()) {
+            return count;
+        }
+        return count(stream.eval(), count + 1);
+    }
+
 
     @Override
     public <R> MyStream<R> map(Function<R, T> mapper) {

@@ -32,10 +32,11 @@ public class TestMyStream {
         people.add(new Person("Big head", 22));
 
         int sumAge = CollectionStreamGenerator.getListStream(people).map(item -> item.age).reduce(0, (i1, i2) -> i1 + i2);
-
         String concatAge = CollectionStreamGenerator.getListStream(people).map(item -> item.age).reduce("", (i1, i2) -> i1 + i2);
+        int count = CollectionStreamGenerator.getListStream(people).count();
 
         System.out.println(sumAge);
         System.out.println(concatAge);
+        System.out.println(count);
     }
 }
